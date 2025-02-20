@@ -6,11 +6,11 @@ void test_order_creation() {
     std::cout << "Running test_order_creation()..." << std::endl;
 
     // Create order
-    Order order(1, Side::SELL, 34.6, 5);
+    Order order(1, OrderType::SELL, 34.6, 5);
 
     // Assertions to verify correctness
     assert(order.get_order_id() == 1);
-    assert(order.get_side() == Side::SELL);
+    assert(order.get_order_type() == OrderType::SELL);
     assert(order.get_price() == 34.6);
     assert(order.get_quantity() == 5);
 

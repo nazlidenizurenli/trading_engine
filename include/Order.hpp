@@ -8,22 +8,23 @@ Order Class that represents a single BUY or SELL
 
 #include <chrono>
 
-enum class Side {BUY, SELL};
+enum class OrderType {BUY, SELL};
 
 class Order {
     private:
         uint64_t order_id;
-        Side side;
+        OrderType order_type;
         double price;
         uint32_t quantity;
         std::chrono::time_point<std::chrono::system_clock> timestamp;
 
     public:
-        Order(uint64_t id, Side side, double price, uint32_t quantity);
+        Order(uint64_t id, OrderType order_type, double price, uint32_t quantity);
         uint64_t get_order_id() const;
-        Side get_side() const;
+        OrderType get_order_type() const;
         double get_price() const;
         uint32_t get_quantity() const;
+        void set_quantity(uint32_t new_quantity);
         const std::chrono::time_point<std::chrono::system_clock>& get_time() const;
         void print() const;
 };
